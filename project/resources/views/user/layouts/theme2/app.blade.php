@@ -9,7 +9,8 @@
 
 @php
 if (url()->current() == route('home')) {
-    $body_class = 'hp-9 hd-white';
+    // $body_class = 'hp-9 hd-white';
+    $body_class = 'inner-pages listing agents hd-white';
 } elseif (url()->current() == route('about')) {
     $body_class = 'inner-pages about p-bl';
 } elseif (url()->current() == route('contact')) {

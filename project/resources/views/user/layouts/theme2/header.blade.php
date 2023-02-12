@@ -2,7 +2,7 @@
 @php
     $menu = [
         ['name' => 'Home', 'href'=>route('home')],
-        ['name' => 'Listings', 'href'=>route('listing')],
+        // ['name' => 'Listings', 'href'=>route('listing')],
         // [
         //     'name' => 'Category',
         //     'href'=>'#',

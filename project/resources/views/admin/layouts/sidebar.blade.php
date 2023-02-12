@@ -42,3 +42,5 @@
         <x-admin.sidebar.li21 href="'" lbl="Calendar" />
     </x-admin.sidebar.li32>
 </x-admin.sidebar.li3>
+
+<x-admin.sidebar.li1 icon="ri-dashboard-line" :href="route('admin.important_links.index')" lbl="Important Links" />

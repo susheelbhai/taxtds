@@ -38,20 +38,25 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="widget quick-link clearfix">
-                        <h3 class="widget-title">Quick Links</h3>
+                        <h3 class="widget-title">Free listing to all over cities</h3>
                         <div class="quick-links">
                             <ul class="one-half mr-5">
-                                <li><a href="{{ route('home') }}">Home</a></li>
-                                <li><a href="{{ route('about') }}">About Us</a></li>
-                                <li><a href="{{ route('listing') }}">Listings</a></li>
-                                <li><a href="{{ route('home') }}">Dashboard</a></li>
-                                <li><a href="#">Register</a></li>
+                                <li><a href="{{ route('home') }}">Ahmedabad</a></li>
+                                <li><a href="{{ route('home') }}">Bangalore</a></li>
+                                <li><a href="{{ route('home') }}">Chandigarh</a></li>
+                                <li><a href="{{ route('home') }}">Chennai</a></li>
+                                <li><a href="{{ route('home') }}">Coimbatore</a></li>
+                                <li><a href="{{ route('home') }}">Delhi-NCR</a></li>
                             </ul>
                             <ul class="one-half">
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="{{ route('contact') }}">Contact</a></li>
-                                <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
-                                <li><a href="{{ route('tnc') }}">Terms Of Use</a></li>
+                                <li><a href="#">Hyderabad</a></li>
+                                <li><a href="{{ route('contact') }}">Goa</a></li>
+                                <li><a href="{{ route('privacy') }}">Indore</a></li>
+                                <li><a href="{{ route('tnc') }}">Jaipur</a></li>
+                                <li><a href="{{ route('tnc') }}">Kolkata</a></li>
+                                <li><a href="{{ route('tnc') }}">Mumbai</a></li>
+                                <li><a href="{{ route('tnc') }}">Mysore</a></li>
+                                <li><a href="{{ route('tnc') }}">Nagpur </a></li>
                             </ul>
                         </div>
                     </div>

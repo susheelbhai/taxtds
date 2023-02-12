@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactUserController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\ImportantLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::middleware('auth_admin')->prefix('admin')->name('admin.')->group(function
     Route::resource('/business', BusinessController::class);
     Route::post('/business/approve', [BusinessController::class,'approve'])->name('business.approve');
 
+    Route::resource('/important_links', ImportantLinkController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/subCategory', SubCategoryController::class);
     Route::resource('/product', ProductController::class);

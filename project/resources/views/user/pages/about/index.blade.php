@@ -18,7 +18,7 @@
     @include('user.pages.about._about-us')
     @include('user.pages.about._vision')
     @include('user.pages.about._counterup')
-    @include('user.pages.about._team')
+    {{-- @include('user.pages.about._team') --}}
     @include('user.pages.about._testimonials')
     @include('user.pages.about._partners')
 

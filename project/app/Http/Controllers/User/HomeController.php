@@ -9,6 +9,7 @@ use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessReview;
+use App\Models\ImportantLink;
 
 class HomeController extends Controller
 {
@@ -46,7 +47,9 @@ class HomeController extends Controller
             $data->orWhere('business_city', 'like', '%'. request()->location. '%');
          }
         $data = $data->paginate(15)->withQueryString();
-        return view('user.pages.listing.index', compact('data', 'categories'));
+        $important_links = ImportantLink::whereIsActive(1)->get();
+
+        return view('user.pages.listing.index', compact('data', 'categories', 'important_links'));
         
     }
     
