@@ -5,16 +5,9 @@
             <p>The Companies That Represent Us.</p>
         </div>
         <div class="owl-carousel style2">
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/1.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/2.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/3.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/4.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/5.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/6.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/7.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/8.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/9.png')}}" alt=""></div>
-            <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/theme/theme2/images/partners/10.png')}}" alt=""></div>
+            @foreach($important_links as $i)
+            <a href="{{$i->href}}" target="_blank" class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/common/images/important_link/')}}/{{$i->image}}" alt=""></a>
+            @endforeach
         </div>
     </div>
 </div>

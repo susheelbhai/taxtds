@@ -7,8 +7,8 @@
                 'data'=> [
                     ['name'=>'Category Name', 'value'=> $data->name],
                     ['name'=>'href', 'value'=> $data->href],
-                    ['name'=> 'image','lbl'=> 'Image', 'image'=>true, 'value'=> $data->image ],
-                    ['name'=>'status', 'value'=> $data->is_active],
+                    ['name'=> 'image','lbl'=> 'Image', 'image'=>true, 'value'=> asset('storage/common/images/important_link/').'/'.$data->image ],
+                    ['name'=>'status', 'value'=> ($data->is_active) ? 'Active' : 'Not Active'],
                 ]
             ],
         ];

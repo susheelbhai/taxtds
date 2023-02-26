@@ -50,6 +50,11 @@ class BusinessRepository{
         $business->contact_person_name = $request->contact_person_name;
         $business->contact_person_email = $request->contact_person_email;
         $business->contact_person_phone = $request->contact_person_phone;
+        $business->facebook = $request->facebook;
+        $business->twitter = $request->twitter;
+        $business->linkedin = $request->linkedin;
+        $business->youtube = $request->youtube;
+        $business->instagram = $request->instagram;
         $business->contact_person_alt_phone = $request->contact_person_alt_phone;
         $business->save();
     }
@@ -89,6 +94,11 @@ class BusinessRepository{
         $business->contact_person_email = $request->contact_person_email;
         $business->contact_person_phone = $request->contact_person_phone;
         $business->contact_person_alt_phone = $request->contact_person_alt_phone;
+        $business->facebook = $request->facebook;
+        $business->twitter = $request->twitter;
+        $business->linkedin = $request->linkedin;
+        $business->youtube = $request->youtube;
+        $business->instagram = $request->instagram;
         $business->update();
     }
 }

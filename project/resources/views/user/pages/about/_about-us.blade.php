@@ -16,7 +16,7 @@
             <div class="team-block col-lg-3 col-md-4 col-xs-12 pb-none">
                 <div class="inner-box team-details">
                     <div class="image team-head">
-                        <a href="http://localhost/slist/storage/theme/theme2/#"><img src="http://localhost/slist/storage/theme/theme2/images/team/team-4.jpg" alt="" /></a>
+                        <a href="http://localhost/slist/storage/theme/theme2/#"><img src="{{asset('storage/common/images/team/').'/hemant.png'}}" alt="" /></a>
                     </div>
                     <div class="lower-box">
                         <h3><a href="http://localhost/slist/storage/theme/theme2/#">Hemant Kumar Bind</a></h3>

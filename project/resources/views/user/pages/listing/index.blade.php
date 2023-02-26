@@ -12,12 +12,13 @@
 
 
             <div class="row">
+                @include('user.pages.listing._asside')
                 <div class="col-lg-8 col-md-12 blog-pots listing-list">
                     <!-- Block heading Start-->
-                    @include('user.pages.listing._headings')
+                    {{-- @include('user.pages.listing._headings') --}}
 
                     <!-- Block heading end -->
-                    <div class="row featured portfolio-items">
+                    <div class="row featured portfolio-items" style="margin-top: -12px;">
 
 
                         @foreach ($data as $i)
@@ -102,7 +103,7 @@
 
                 </div>
 
-                @include('user.pages.listing._asside')
+                
 
             </div>
             @include('user.pages.listing._partners')

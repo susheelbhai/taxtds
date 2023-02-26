@@ -8,6 +8,7 @@
         --color2: {{ Config::get('settings')['color2'] }};
         --color3: {{ Config::get('settings')['color3'] }};
     }
+    .right-side{margin-left: -32px !important;}
 </style>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"

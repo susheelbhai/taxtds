@@ -39,6 +39,17 @@
             ], 
             [
                 'id'=>'04',
+                'name'=> 'Social Media',
+                'form'=> [
+                    ['name'=> 'facebook', 'lbl'=>'Facebook URL', 'value'=>$data->facebook],
+                    ['name'=> 'twitter', 'lbl'=>'Twitter URL', 'value'=>$data->twitter],
+                    ['name'=> 'linkedin', 'lbl'=>'Linkedin URL', 'value'=>$data->linkedin],
+                    ['name'=> 'youtube', 'lbl'=>'Youtube URL', 'value'=>$data->youtube],
+                    ['name'=> 'instagram', 'lbl'=>'Instagram URL', 'value'=>$data->instagram],
+                ]
+            ], 
+            [
+                'id'=>'05',
                 'name'=> 'Confirm Details',
                 'complete'=> [
                     ['name'=> 'business', 'lbl'=>'Business', 'type'=>'text', 'value'=> $data->business_name],

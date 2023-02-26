@@ -15,9 +15,7 @@ class SettingSeeder extends Seeder
     public function run()
     {
         \App\Models\Setting::create([
-            
-
-            'app_name' => 'S Commerse',
+            'app_name' => 'TaxTDS',
             'favicon' => 'dummy.png',
             'dark_logo' => 'dummy.png',
             'light_logo' => 'dummy.png',

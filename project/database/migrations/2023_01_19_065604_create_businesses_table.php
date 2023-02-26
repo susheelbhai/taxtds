@@ -38,6 +38,11 @@ return new class extends Migration
             $table->string('contact_person_phone')->nullable();
             $table->string('contact_person_alt_phone')->nullable();
             $table->string('contact_person_email')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('instagram')->nullable();
             $table->string('is_approved')->default(0);
             $table->string('is_active')->default(1);
             $table->softDeletes();

@@ -421,11 +421,11 @@
                                         </li>
                                     </ul>
                                     <ul class="author__link">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                        <li><a href="{{ $data->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="{{ $data->twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="{{ $data->linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="{{ $data->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                        <li><a href="{{ $data->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
                                     <div class="agent-contact-form-sidebar">
                                         <h4><i class="far fa-envelope pr-3"></i>Contact Seller</h4>

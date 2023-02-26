@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(SubCategorySeeder::class);
         $this->call(BusinessSeeder::class);
+        $this->call(ImportantLinkSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
