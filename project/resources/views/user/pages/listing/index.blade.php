@@ -27,7 +27,7 @@
                                     <div class="project-inner project-head">
                                         <div class="homes">
                                             <!-- homes img -->
-                                            <a href="#" class="homes-img hover-effect">
+                                            <a href="{{ route('listingDetail', $i->id) }}" class="homes-img hover-effect">
                                                 <div class="homes-tag button alt featured f2">Popular</div>
                                                 <div class="homes-tag button sale rent"><i class="fa fa-heart-o"></i>
                                                     <p>163</p>
@@ -57,11 +57,12 @@
                             </div>
                             <!-- homes content -->
                             <div class="col-lg-7 col-md-12 homes-content pb-0 my-1 ft mb-44" data-aos="fade-up">
+                                <a href="{{ route('listingDetail', $i->id) }}">
                                 <!-- homes address -->
-                                <div class="enty">
-                                    <a href="{{ route('listingDetail', $i->id) }}">
+                                <div href="{{ route('listingDetail', $i->id) }}" class="enty">
+                                    <span href="{{ route('listingDetail', $i->id) }}">
                                         <h3 class="mb-4">{{ $i->business_name ?? '' }}</h3>
-                                    </a>
+                                    </span>
                                     <ul class="homes-list clearfix">
                                         <li>
                                             <i class="fa fa-map-marker"></i>
@@ -78,7 +79,7 @@
                                     </ul>
                                 </div>
                                 <!-- Price -->
-                                <div class="price-properties">
+                                <div href="{{ route('listingDetail', $i->id) }}" class="price-properties">
                                     <ul class="starts text-left mb-0">
                                         <li class="mt-3"><img src="storage/theme/theme2/images/icons/8.png"
                                                 width="20" class="mr-2" alt="">
@@ -88,13 +89,15 @@
                                         </li>
                                     </ul>
                                     <div class="fr-grid-thumb">
-                                        <a href="#">
+                                        <div href="#">
                                             <div class="overall-rate"><i class="fas fa-check"></i></div>
                                             <img src="{{ url('storage/business/images', $i->logo) }}"
                                                 class="img-fluid mx-auto" alt="" />
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
+                                </a>
+                                
                             </div>
                         @endforeach
 

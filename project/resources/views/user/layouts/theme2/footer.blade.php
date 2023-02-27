@@ -1,6 +1,10 @@
 @php
     $settings = Config::get('settings');
 @endphp
+
+<style>
+    .widget.quick-link ul li a{padding-bottom: 0}
+</style>
 <!-- START FOOTER -->
 <footer class="first-footer">
     <div class="top-footer">
@@ -62,61 +66,32 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="widget">
-                        <h3>Instagram</h3>
-                        <ul class="photo">
-                            <li class="hover-effect">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-1.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-2.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-3.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-4.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-5.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-6.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect mb-0">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-7.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect mb-0">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-8.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                            <li class="hover-effect mb-0">
-                                <figure>
-                                    <a href="#"><img src="storage/theme/theme2/images/instagram/inst-9.jpg" alt=""></a>
-                                </figure>
-                            </li>
-                        </ul>
+                    <div class="widget quick-link clearfix">
+                        <h3 class="widget-title">Popular categories</h3>
+                        <div class="quick-links">
+                            <ul class="one-half mr-5">
+                                <li> <a href="#registration-services">Registration Services</a> </li>
+                                <li> <a href="#company-compliance">Company compliance </a> </li>
+                                <li> <a href="#tax-filling">Tax filling</a> </li>
+                                <li> <a href="#audit-and-insurance">Audit and Insurance</a> </li>
+                                <li> <a href="#taxation-advisory-and-personal-advisory">Taxation Advisory and Personal Advisory </a> </li>
+                            
+                                
+                                <li> <a href="#fcra-fema-ngos">FCRA FEMA NGOs</a> </li>
+                                <li> <a href="#valuations">Valuations</a> </li>
+                                <li> <a href="#accounting-services">Accounting Services</a> </li>
+                                <li> <a href="#investment-planning">Investment Planning</a> </li>
+                                <li> <a href="#gst-return">GST Return</a> </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
                     <div class="newsletters">
                         <h3>Newsletters</h3>
-                        <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in your inbox.</p>
+                        <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in
+                            your inbox.</p>
                     </div>
                     <form class="bloq-email mailchimp form-inline" method="post">
                         <label for="subscribeEmail" class="error"></label>

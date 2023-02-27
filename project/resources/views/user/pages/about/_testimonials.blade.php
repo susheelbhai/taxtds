@@ -48,7 +48,7 @@
                 </p>
                 <img src="{{asset('storage/common/images/testimonial/').'/manish.png'}}" alt="">
                 <h3 class="mt-3">Manish Chawda</h3>
-                <h6>IELETS Tuttor</h6>
+                <h6>IELTS Tuttor</h6>
                 <ul class="starts text-center">
                     <li><i class="fa fa-star"></i>
                     </li>
