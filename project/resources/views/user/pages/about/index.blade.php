@@ -4,13 +4,20 @@
         <meta name="description" content="html 5 template">
         <meta name="author" content="">
         <title>TaxTDS</title>
+        
+        <style>
+            .inner-pages.about .headings{
+                background: url("{{ asset('storage/common/images/about.jpeg') }}");
+                background-position: center;
+            }
+        </style>
     </x-slot>
 
     <section class="headings">
         <div class="text-heading text-center">
             <div class="container">
                 <h1>About Us</h1>
-                <h2><a href="http://localhost/slist/storage/theme/theme2/index.html">Home </a> &nbsp;/&nbsp; About Us</h2>
+                <h2><a href="{{ route('home') }}">Home </a> &nbsp;/&nbsp; About Us</h2>
             </div>
         </div>
     </section>
