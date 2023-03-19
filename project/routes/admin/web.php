@@ -49,6 +49,8 @@ Route::middleware('auth_admin')->prefix('admin')->name('admin.')->group(function
 
     Route::resource('/business', BusinessController::class);
     Route::post('/business/approve', [BusinessController::class,'approve'])->name('business.approve');
+    Route::post('/business/add_banner_img', [BusinessController::class,'add_banner_img'])->name('business.add_banner_img');
+    Route::post('/business/delete_banner_img', [BusinessController::class,'delete_banner_img'])->name('business.delete_banner_img');
 
     Route::resource('/important_links', ImportantLinkController::class);
     Route::resource('/category', CategoryController::class);

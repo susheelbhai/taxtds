@@ -58,7 +58,7 @@ class HomeController extends Controller
         $reviews = BusinessReview::whereBusinessId($id)->get();
         // return $reviews->AVG('rating');
         $categories = Category::whereIsActive(1)->get();
-        $data = Business::whereId($id)->whereIsApproved(1)->whereIsActive(1)->with('category', 'subCategory')->first();
+        $data = Business::whereId($id)->whereIsApproved(1)->whereIsActive(1)->with('category', 'subCategory')->with('bannerImg')->first();
         // $data = ContactUser::latest();
         if (!isset($data)) {
             return abort('404');

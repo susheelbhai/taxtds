@@ -2,7 +2,9 @@
 namespace App\Repositories;
 
 use App\Models\Business;
+use App\Models\BusinessBannerImage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Facades\Image;
 
@@ -57,6 +59,32 @@ class BusinessRepository{
         $business->instagram = $request->instagram;
         $business->contact_person_alt_phone = $request->contact_person_alt_phone;
         $business->save();
+    }
+
+    public function storeBannerImg($request)
+    {
+        $img_path = public_path('/storage/business/images/');
+        $add_img = new BusinessBannerImage();
+        if($request->hasFile('banner_img')) {
+            $banner_img_name = uniqid() . '.' . $request->file('banner_img')->getClientOriginalExtension();
+            $banner_img = Image::make($request->file('banner_img'));
+            $banner_img->resize(500,300);
+            $banner_img->save($img_path.$banner_img_name);
+        $add_img->business_id = $request->business_id;
+        $add_img->name = $banner_img_name;
+        }
+        $add_img->save();
+
+    }
+
+    public function deleteBannerImg($request)
+    {
+        $data = BusinessBannerImage::find($request->id);
+        if (File::exists(public_path('/storage/business/images/'.$data->name))) {
+            File::delete(public_path('/storage/business/images/'.$data->name));
+        }
+        $data->delete();
+
     }
 
 

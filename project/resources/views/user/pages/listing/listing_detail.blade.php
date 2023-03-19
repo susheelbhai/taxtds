@@ -3,48 +3,25 @@
     <div>
         <div class="swiper-container">
             <div class="swiper-wrapper">
+
+                @forelse ($data['bannerImg'] as $i)
                 <div class="swiper-slide">
-                    <a href="http://localhost/slist/storage/theme/theme2/images/listing-details/1.jpg"
+                    <a href="{{ url('/storage/business/images/',$i->name) }}"
                         class="grid image-link">
-                        <img src="http://localhost/slist/storage/theme/theme2/images/listing-details/1.jpg"
+                        <img src="{{ url('/storage/business/images/',$i->name) }}"
                             class="img-fluid" alt="#">
                     </a>
                 </div>
+                @empty
                 <div class="swiper-slide">
-                    <a href="http://localhost/slist/storage/theme/theme2/images/listing-details/2.jpg"
+                    <a href="{{ url('/storage/business/images/dummy_5_3.jpg') }}"
                         class="grid image-link">
-                        <img src="http://localhost/slist/storage/theme/theme2/images/listing-details/2.jpg"
+                        <img src="{{ url('/storage/business/images/dummy_5_3.jpg') }}"
                             class="img-fluid" alt="#">
                     </a>
                 </div>
-                <div class="swiper-slide">
-                    <a href="http://localhost/slist/storage/theme/theme2/images/listing-details/3.jpg"
-                        class="grid image-link">
-                        <img src="http://localhost/slist/storage/theme/theme2/images/listing-details/3.jpg"
-                            class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="http://localhost/slist/storage/theme/theme2/images/listing-details/4.jpg"
-                        class="grid image-link">
-                        <img src="http://localhost/slist/storage/theme/theme2/images/listing-details/4.jpg"
-                            class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="http://localhost/slist/storage/theme/theme2/images/listing-details/5.jpg"
-                        class="grid image-link">
-                        <img src="http://localhost/slist/storage/theme/theme2/images/listing-details/5.jpg"
-                            class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="http://localhost/slist/storage/theme/theme2/images/listing-details/6.jpg"
-                        class="grid image-link">
-                        <img src="http://localhost/slist/storage/theme/theme2/images/listing-details/6.jpg"
-                            class="img-fluid" alt="#">
-                    </a>
-                </div>
+                @endforelse
+                
             </div>
 
             <div class="swiper-pagination swiper-pagination-white"></div>

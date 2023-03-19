@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\BusinessRepository;
 use App\Http\Requests\Business\StoreRequest;
 use App\Http\Requests\Business\UpdateRequest;
+use App\Models\BusinessBannerImage;
 
 class BusinessController extends Controller
 {
@@ -51,6 +52,22 @@ class BusinessController extends Controller
         $this->repository->store($request);        
         return redirect()->route('admin.business.index');
     }
+    public function add_banner_img(Request $request)
+    {
+        $request->validate([
+            'banner_img'=>'required',
+        ]);
+        // return $request;
+        $this->repository->storeBannerImg($request);        
+        return back()->with('msg', 'Banner image added Successfully');
+    }
+    public function delete_banner_img(Request $request)
+    {
+        // return $data = BusinessBannerImage::find($request->id);
+         
+        $this->repository->deleteBannerImg($request);        
+        return back()->with('msg', 'Banner image deleted Successfully');
+    }
 
     /**
      * Display the specified resource.
@@ -61,7 +78,8 @@ class BusinessController extends Controller
     public function show($id)
     {
         $data = Business::whereId($id)->with('category', 'subCategory')->first();
-        return view('admin.resources.business.view', compact('data'));
+        $banner_img = BusinessBannerImage::where('business_id', $id)->get();
+        return view('admin.resources.business.view', compact('data', 'banner_img'));
     }
 
     /**
