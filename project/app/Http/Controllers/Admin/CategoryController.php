@@ -39,12 +39,12 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'icon' => 'required',
         ]);
+        if($request->is_active){ $is_active = 1; } else{$is_active = 0;}
         $category = new Category();
         $category->name = $request->name;
         $category->icon = $request->icon;
-        $category->is_active = $request->is_active;
+        $category->is_active = $is_active;
         $category->save();
         return redirect()->route('admin.category.index');
     }
@@ -85,7 +85,6 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'icon' => 'required',
         ]);
         $category = Category::find($id);
         $category->name = $request->name;

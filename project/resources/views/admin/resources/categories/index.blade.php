@@ -1,7 +1,7 @@
 <x-admin-layout>
 
 
-    <x-admin.table.table1 heading="All Business" :addUrl="route('admin.category.create')"  >
+    <x-admin.table.table1 heading="All Category" :addUrl="route('admin.category.create')"  >
 
         <x-slot name="thead">
             <tr>

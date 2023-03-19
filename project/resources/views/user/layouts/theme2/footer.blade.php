@@ -10,7 +10,7 @@
     <div class="top-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="netabout">
                         <a href="{{ route('home') }}" class="logo">
                             <img src="{{ asset('storage/common/images/logo/' . $settings->light_logo) }}" alt="netcom">
@@ -40,7 +40,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="widget quick-link clearfix">
                         <h3 class="widget-title">Free listing to all over cities</h3>
                         <div class="quick-links">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="widget quick-link clearfix">
                         <h3 class="widget-title">Popular categories</h3>
                         <div class="quick-links">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6 d-none">
                     <div class="newsletters">
                         <h3>Newsletters</h3>
                         <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in

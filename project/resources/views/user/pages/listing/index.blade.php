@@ -2,6 +2,7 @@
 
     <style>
         section.popular.portfolio{padding-top: 0 !important}
+        .pro-wrapper{display:none !important;}
     </style>
 
     <!-- START SECTION LISTING RIGHT -->

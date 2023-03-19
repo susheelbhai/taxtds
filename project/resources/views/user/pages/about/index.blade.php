@@ -9,7 +9,11 @@
             .inner-pages.about .headings{
                 background: url("{{ asset('storage/common/images/about.jpeg') }}");
                 background-position: center;
+                margin-top: 7rem;
             }
+            .head-tr.bottom{background-color: #fff;}
+            #navigation.style-1.head-tr ul li a{color: black}
+            .inner-pages .headings h1{margin-top: 7rem;}
         </style>
     </x-slot>
 

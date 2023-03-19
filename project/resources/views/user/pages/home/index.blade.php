@@ -4,6 +4,9 @@
         <meta name="description" content="html 5 template">
         <meta name="author" content="">
         <title>TaxTDS</title>
+        <style>
+            .pro-wrapper{display:none;}
+        </style>
     </x-slot>
 
     @include('user.pages.home._banner')
