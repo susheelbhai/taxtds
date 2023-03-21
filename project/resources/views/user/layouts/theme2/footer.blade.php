@@ -3,14 +3,16 @@
 @endphp
 
 <style>
-    .widget.quick-link ul li a{padding-bottom: 0}
+    .widget.quick-link ul li a {
+        padding-bottom: 0
+    }
 </style>
 <!-- START FOOTER -->
 <footer class="first-footer">
     <div class="top-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="netabout">
                         <a href="{{ route('home') }}" class="logo">
                             <img src="{{ asset('storage/common/images/logo/' . $settings->light_logo) }}" alt="netcom">
@@ -37,10 +39,19 @@
                                     <p class="in-p ti">{{ $settings->email }}</p>
                                 </div>
                             </li>
+                            <li>
+                                <a href="{{ $settings->facebook }}" style="padding: 4px; margin 4px"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
+                                <a href="{{ $settings->twitter }}" style="padding: 4px; margin 4px"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="{{ $settings->instagram }}" style="padding: 4px; margin 4px"><i class="fa fa-instagram"
+                                        aria-hidden="true"></i></a>
+                                <a href="{{ $settings->linkedin }}" style="padding: 4px; margin 4px"><i class="fa fa-linkedin"
+                                        aria-hidden="true"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="widget quick-link clearfix">
                         <h3 class="widget-title">Free listing to all over cities</h3>
                         <div class="quick-links">
@@ -65,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="widget quick-link clearfix">
                         <h3 class="widget-title">Popular categories</h3>
                         <div class="quick-links">
@@ -74,9 +85,10 @@
                                 <li> <a href="#company-compliance">Company compliance </a> </li>
                                 <li> <a href="#tax-filling">Tax filling</a> </li>
                                 <li> <a href="#audit-and-insurance">Audit and Insurance</a> </li>
-                                <li> <a href="#taxation-advisory-and-personal-advisory">Taxation Advisory and Personal Advisory </a> </li>
-                            
-                                
+                                <li> <a href="#taxation-advisory-and-personal-advisory">Taxation Advisory and Personal
+                                        Advisory </a> </li>
+
+
                                 <li> <a href="#fcra-fema-ngos">FCRA FEMA NGOs</a> </li>
                                 <li> <a href="#valuations">Valuations</a> </li>
                                 <li> <a href="#accounting-services">Accounting Services</a> </li>
@@ -87,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 d-none">
                     <div class="newsletters">
                         <h3>Newsletters</h3>
                         <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in
@@ -109,10 +121,15 @@
         <div class="container">
             <p>{{ $settings->app_name }} ©2021 All rights reserved. </p>
             <ul class="netsocials">
-                <li><a href="{{ $settings->facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                {{-- <li><a href="{{ $settings->facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                 <li><a href="{{ $settings->twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                 <li><a href="{{ $settings->instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                <li><a href="{{ $settings->linkedin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="{{ $settings->linkedin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li> --}}
+                <li>
+                    Developed with <i class="fa fa-heart text-danger"></i> by <a href="https://digilight.in"
+                        target="_blank">Digilight</a>
+                </li>
+
             </ul>
         </div>
     </div>

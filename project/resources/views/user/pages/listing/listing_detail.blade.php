@@ -5,23 +5,20 @@
             <div class="swiper-wrapper">
 
                 @forelse ($data['bannerImg'] as $i)
-                <div class="swiper-slide">
-                    <a href="{{ url('/storage/business/images/',$i->name) }}"
-                        class="grid image-link">
-                        <img src="{{ url('/storage/business/images/',$i->name) }}"
-                            class="img-fluid" alt="#">
-                    </a>
-                </div>
+                    <div class="swiper-slide">
+                        <a href="{{ url('/storage/business/images/', $i->name) }}" class="grid image-link">
+                            <img src="{{ url('/storage/business/images/', $i->name) }}" class="img-fluid" alt="#">
+                        </a>
+                    </div>
                 @empty
-                <div class="swiper-slide">
-                    <a href="{{ url('/storage/business/images/dummy_5_3.jpg') }}"
-                        class="grid image-link">
-                        <img src="{{ url('/storage/business/images/dummy_5_3.jpg') }}"
-                            class="img-fluid" alt="#">
-                    </a>
-                </div>
+                    <div class="swiper-slide">
+                        <a href="{{ url('/storage/business/images/dummy_5_3.jpg') }}" class="grid image-link">
+                            <img src="{{ url('/storage/business/images/dummy_5_3.jpg') }}" class="img-fluid"
+                                alt="#">
+                        </a>
+                    </div>
                 @endforelse
-                
+
             </div>
 
             <div class="swiper-pagination swiper-pagination-white"></div>
@@ -171,7 +168,8 @@
                                 <div class="review-rating-summary">
                                     <div class="review-rating-summary-inner">
                                         <div class="stats-average__count">
-                                            <span class="stats-average__count-count"> {{ number_format($reviews->AVG('rating'),2 ) }}</span>
+                                            <span class="stats-average__count-count">
+                                                {{ number_format($reviews->AVG('rating'), 2) }}</span>
                                         </div>
                                         <!-- end stats-average__count -->
                                         <div class="stats-average__rating p-0">
@@ -258,41 +256,48 @@
                     </div>
                     <!-- START SECTION ASSIGNED AGENTS -->
                     <section class="reviews comments">
-                        <h3 class="mb-5"> {{ count($reviews) }} Reviews <span class="float-right">{{ number_format($reviews->AVG('rating'),2 ) }} Out of 5</span> </h3>
+                        <h3 class="mb-5"> {{ count($reviews) }} Reviews <span
+                                class="float-right">{{ number_format($reviews->AVG('rating'), 2) }} Out of 5</span>
+                        </h3>
                         @foreach ($reviews as $i)
-                        <div class="row mb-5">
-                            <ul class="col-12 commented pl-0">
-                                <li class="comm-inf">
-                                    <div class="col-md-2 d-none">
-                                        <img src="http://localhost/slist/storage/theme/theme2/images/testimonials/ts-5.jpg"
-                                            class="img-fluid" alt="">
-                                    </div>
-                                    <div class="col-md-10 comments-info ml-5">
-                                        <div class="conra">
-                                            <h5 class="mb-2">{{ $i->name }}</h5>
-                                            <div class="rating-box">
-                                                <div class="detail-list-rating mr-0">
-                                                    
-                                                    <i class="fa @if($i->rating<1) fa-star-o @else fa-star @endif"></i>
-                                                    <i class="fa @if($i->rating<2) fa-star-o @else fa-star @endif"></i>
-                                                    <i class="fa @if($i->rating<3) fa-star-o @else fa-star @endif"></i>
-                                                    <i class="fa @if($i->rating<4) fa-star-o @else fa-star @endif"></i>
-                                                    <i class="fa @if($i->rating<5) fa-star-o @else fa-star @endif"></i>
+                            <div class="row mb-5">
+                                <ul class="col-12 commented pl-0">
+                                    <li class="comm-inf">
+                                        <div class="col-md-2 d-none">
+                                            <img src="http://localhost/slist/storage/theme/theme2/images/testimonials/ts-5.jpg"
+                                                class="img-fluid" alt="">
+                                        </div>
+                                        <div class="col-md-10 comments-info ml-5">
+                                            <div class="conra">
+                                                <h5 class="mb-2">{{ $i->name }}</h5>
+                                                <div class="rating-box">
+                                                    <div class="detail-list-rating mr-0">
+
+                                                        <i
+                                                            class="fa @if ($i->rating < 1) fa-star-o @else fa-star @endif"></i>
+                                                        <i
+                                                            class="fa @if ($i->rating < 2) fa-star-o @else fa-star @endif"></i>
+                                                        <i
+                                                            class="fa @if ($i->rating < 3) fa-star-o @else fa-star @endif"></i>
+                                                        <i
+                                                            class="fa @if ($i->rating < 4) fa-star-o @else fa-star @endif"></i>
+                                                        <i
+                                                            class="fa @if ($i->rating < 5) fa-star-o @else fa-star @endif"></i>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <p class="mb-4 rest">{{ custom_date($i->created_at) }}</p>
+                                            <p>{{ $i->review }}
+                                            </p>
+                                            <div class="rest d-none"><img
+                                                    src="http://localhost/slist/storage/theme/theme2/images/restaurants/4.jpg"
+                                                    class="img-fluid" alt=""></div>
                                         </div>
-                                        <p class="mb-4 rest">{{ custom_date($i->created_at) }}</p>
-                                        <p>{{$i->review}}
-                                        </p>
-                                        <div class="rest d-none"><img
-                                                src="http://localhost/slist/storage/theme/theme2/images/restaurants/4.jpg"
-                                                class="img-fluid" alt=""></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> 
+                                    </li>
+                                </ul>
+                            </div>
                         @endforeach
-                        
+
                     </section>
                     <section class="reviews leve-comments details">
                         <form action="{{ route('submit_review', $data->id) }}" method="POST"
@@ -388,31 +393,51 @@
                                         <li><span class="la la-map-marker"><i
                                                     class="fa fa-map-marker"></i></span>{{ $data->business_address }}
                                         </li>
-                                        <li><span class="la la-phone"><i class="fa fa-phone"
-                                                    aria-hidden="true"></i></span><a
-                                                href="#">{{ maskPhone($data->contact_person_phone ?? '9999999999') }}</a>
+                                        <li>
+                                            <span class="la la-phone"><i class="fa fa-phone"
+                                                    aria-hidden="true"></i></span>
+                                            <a href="#">
+                                                @if (Session::has('unmask_contact'))
+                                                    {{ $data->contact_person_phone ?? '' }}
+                                                @else
+                                                    {{ maskPhone($data->contact_person_phone ?? '9999999999') }}
+                                                @endif
+                                            </a>
                                         </li>
                                         <li><span class="la la-envelope-o"><i class="fa fa-envelope"
-                                                    aria-hidden="true"></i></span><a
-                                                href="#">{{ maskEmail($data->contact_person_email ?? 'email@example.com') }}</a>
+                                                    aria-hidden="true"></i></span>
+                                            <a href="#">
+                                                @if (Session::has('unmask_contact'))
+                                                    {{ $data->contact_person_email ?? '' }}
+                                                @else
+                                                    {{ maskEmail($data->contact_person_email ?? 'email@example.com') }}
+                                                @endif
+                                                
+                                            </a>
                                         </li>
                                     </ul>
                                     <ul class="author__link">
-                                        <li><a href="{{ $data->facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="{{ $data->twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="{{ $data->linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="{{ $data->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                                        <li><a href="{{ $data->instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="{{ $data->facebook }}" target="_blank"><i
+                                                    class="fa fa-facebook"></i></a></li>
+                                        <li><a href="{{ $data->twitter }}" target="_blank"><i
+                                                    class="fa fa-twitter"></i></a></li>
+                                        <li><a href="{{ $data->linkedin }}" target="_blank"><i
+                                                    class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="{{ $data->youtube }}" target="_blank"><i
+                                                    class="fa fa-youtube"></i></a></li>
+                                        <li><a href="{{ $data->instagram }}" target="_blank"><i
+                                                    class="fa fa-instagram"></i></a></li>
                                     </ul>
                                     <div class="agent-contact-form-sidebar">
                                         <h4><i class="far fa-envelope pr-3"></i>Contact Seller</h4>
                                         <form name="contact_form" method="post"
-                                            action="https://code-theme.com/html/listifind/functions.php">
-                                            <input type="text" id="fname" name="full_name"
+                                            action="{{ route('contact_seller', $data->id) }}">
+                                            @csrf
+                                            <input type="text" id="name" name="name"
                                                 placeholder="Full Name" required />
-                                            <input type="number" id="pnumber" name="phone_number"
+                                            <input type="number" id="phone" name="phone"
                                                 placeholder="Phone Number" required />
-                                            <input type="email" id="emailid" name="email_address"
+                                            <input type="email" id="email" name="email"
                                                 placeholder="Email Address" required />
                                             <textarea placeholder="Message" name="message" required></textarea>
                                             <input type="submit" name="sendmessage" class="multiple-send-message"

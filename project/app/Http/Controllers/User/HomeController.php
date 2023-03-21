@@ -9,6 +9,7 @@ use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessReview;
+use App\Models\ContactSellerForm;
 use App\Models\ImportantLink;
 
 class HomeController extends Controller
@@ -79,6 +80,19 @@ class HomeController extends Controller
         $review->review = $req->review;
         $review->save();
         return back()->with('msg', 'Review Submitted Successfully');
+    }
+    
+    public function contact_seller(Request $req, $id)
+    {
+        // return $req;
+        $review = new ContactSellerForm();
+        $review->business_id = $req->id;
+        $review->name = $req->name;
+        $review->email = $req->email;
+        $review->phone = $req->phone;
+        $review->message = $req->message;
+        $review->save();
+        return back()->with('msg', 'Seller will contact to shortly')->with('unmask_contact', 1);
     }
 
     public function getSubCategory(Request $req)

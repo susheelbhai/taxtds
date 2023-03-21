@@ -41,6 +41,17 @@
             ], 
             [
                 'id'=>'04',
+                'name'=> 'Social Media',
+                'form'=> [
+                    ['name'=> 'facebook', 'lbl'=>'Facebook URL'],
+                    ['name'=> 'twitter', 'lbl'=>'Twitter URL'],
+                    ['name'=> 'linkedin', 'lbl'=>'Linkedin URL'],
+                    ['name'=> 'youtube', 'lbl'=>'Youtube URL'],
+                    ['name'=> 'instagram', 'lbl'=>'Instagram URL'],
+                ]
+            ], 
+            [
+                'id'=>'05',
                 'name'=> 'Confirm Details',
                 'complete'=> [
                     ['name'=> 'business', 'lbl'=>'Business', 'type'=>'text'],
