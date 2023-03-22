@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class SliderController extends Controller
 {
@@ -37,7 +39,20 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'banner_img' => 'required',
+        ]);
+        $img_path = public_path('/storage/common/images/sliders/');
+        $data = new Slider();
+        if($request->hasFile('banner_img')) {
+            $banner_img_name = uniqid() . '.' . $request->file('banner_img')->getClientOriginalExtension();
+            $banner_img = Image::make($request->file('banner_img'));
+            $banner_img->fit(1442,250);
+            $banner_img->save($img_path.$banner_img_name);
+            $data->slider_img = $banner_img_name;
+        }
+        $data->save();
+        return back()->with('msg', 'Banner image added Successfully');
     }
 
     /**
@@ -82,6 +97,11 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Slider::find($id);
+        if (File::exists(public_path('/storage/common/images/sliders/'.$data->slider_img))) {
+            File::delete(public_path('/storage/common/images/sliders/'.$data->slider_img));
+        }
+        $data->delete();
+        return back()->with('msg', 'Banner image deleted Successfully');
     }
 }

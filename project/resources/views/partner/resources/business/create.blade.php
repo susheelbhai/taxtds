@@ -17,6 +17,7 @@
                     ['name'=> 'map_src', 'lbl'=>'Map Embad src', 'type'=>'textarea'],
                     ['name'=> 'short_description', 'lbl'=>'Short Description', 'type'=>'textarea'],
                     ['name'=> 'long_description', 'lbl'=>'Long Description', 'type'=>'textarea'],
+                    ['name'=> 'services', 'lbl'=>'Services', 'type'=>'editor'],
                 ]
             ], 
             [

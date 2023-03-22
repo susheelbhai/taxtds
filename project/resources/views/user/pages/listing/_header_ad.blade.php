@@ -1,5 +1,5 @@
 <div class="owl-carousel owl_ad">
-    @foreach ($important_links as $i)
-    <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/common/images/ads/bannerfull.jpg')}}" alt=""></div>
+    @foreach ($sliders as $i)
+    <div class="owl-item" data-aos="fade-up"><img src="{{ asset('storage/common/images/sliders/')}}/{{ $i->slider_img }}" alt=""></div>
     @endforeach
 </div>

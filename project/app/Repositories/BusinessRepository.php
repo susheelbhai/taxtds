@@ -45,6 +45,7 @@ class BusinessRepository{
         $business->website = $request->website;
         $business->short_description = $request->short_description;
         $business->long_description = $request->long_description;
+        $business->services = $request->services;
         $business->business_address = $request->address;
         $business->business_city = $request->city;
         $business->business_pin = $request->pin;
@@ -114,6 +115,7 @@ class BusinessRepository{
         $business->website = $request->website;
         $business->short_description = $request->short_description;
         $business->long_description = $request->long_description;
+        $business->services = $request->services;
         $business->business_address = $request->address;
         $business->business_city = $request->city;
         $business->business_pin = $request->pin;

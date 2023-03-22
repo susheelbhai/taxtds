@@ -8,9 +8,13 @@ use App\Models\ContactUser;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\ContactSellerSubmissionMailToUser;
+use App\Mail\QuerySubmissionMailToUser;
 use App\Models\BusinessReview;
 use App\Models\ContactSellerForm;
 use App\Models\ImportantLink;
+use App\Models\Slider;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -49,8 +53,9 @@ class HomeController extends Controller
          }
         $data = $data->paginate(15)->withQueryString();
         $important_links = ImportantLink::whereIsActive(1)->get();
+        $sliders = Slider::all();
 
-        return view('user.pages.listing.index', compact('data', 'categories', 'important_links'));
+        return view('user.pages.listing.index', compact('data', 'categories', 'important_links', 'sliders'));
         
     }
     
@@ -92,6 +97,7 @@ class HomeController extends Controller
         $review->phone = $req->phone;
         $review->message = $req->message;
         $review->save();
+        Mail::to($req->email)->send(new ContactSellerSubmissionMailToUser($req));
         return back()->with('msg', 'Seller will contact to shortly')->with('unmask_contact', 1);
     }
 
@@ -117,6 +123,7 @@ class HomeController extends Controller
         $query->subject = $req->message;
         $query->description = $req->message;
         $query->save();
+        Mail::to($req->email)->send(new QuerySubmissionMailToUser($req));
         return view('user.pages.contact');
     }
 }

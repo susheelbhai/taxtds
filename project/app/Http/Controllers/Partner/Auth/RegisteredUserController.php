@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Partner\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\Partner as User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Models\Partner as User;
+use Illuminate\Validation\Rules;
+use App\Mail\WelcomeMailToPartner;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
@@ -45,7 +47,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::guard('partner')->login($user);
-
+        Mail::to($request->email)->send(new WelcomeMailToPartner($request));
         return redirect(RouteServiceProvider::HOME);
     }
 }

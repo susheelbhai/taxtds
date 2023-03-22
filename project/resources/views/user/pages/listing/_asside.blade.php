@@ -104,7 +104,7 @@
                 <div class="side-list">
                     <ul>
                         @foreach ($categories as $i)
-                            <a href="{{ $i->name }}">
+                            <a href="#">
                                 <li> {{ $i->name }} </li>
                             </a>
                         @endforeach

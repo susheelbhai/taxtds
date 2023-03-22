@@ -33,14 +33,7 @@
 
 <x-admin.sidebar.li3 icon="ri-calendar-2-line" lbl="Website Setting">
     <x-admin.sidebar.li21 :href="route('admin.slider.index')" lbl="Slider" />
-    <x-admin.sidebar.li32 lbl="Mail">
-        <x-admin.sidebar.li21 href="''" lbl="Dashboard" />
-        <x-admin.sidebar.li21 href="''" lbl="Calendar" />
-    </x-admin.sidebar.li32>
-    <x-admin.sidebar.li32 lbl="Mail">
-        <x-admin.sidebar.li21 href="''" lbl="Dashboard" />
-        <x-admin.sidebar.li21 href="'" lbl="Calendar" />
-    </x-admin.sidebar.li32>
+    
 </x-admin.sidebar.li3>
 
 <x-admin.sidebar.li1 icon="ri-dashboard-line" :href="route('admin.important_links.index')" lbl="Important Links" />

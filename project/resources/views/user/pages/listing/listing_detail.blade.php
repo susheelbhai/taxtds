@@ -1,5 +1,13 @@
 <x-user-layout>
 
+    <x-slot name="head">
+        <meta name="description" content="html 5 template">
+        <meta name="author" content="">
+        <title>TaxTDS</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </x-slot>
+
     <div>
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -28,6 +36,16 @@
         </div>
     </div>
 
+    @if (Session::has('unmask_contact'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Seller Contact Details',
+                html: 'Phone : {{ $data->contact_person_phone ?? ''  }}</br> Email: {{ $data->contact_person_email ?? ''  }}',
+            })
+        </script>
+    @endif
+
     <section class="listing blog details">
         <div class="container">
             <div class="row">
@@ -38,7 +56,7 @@
                             <div class="detail-wrapper">
                                 <div class="detail-wrapper-body">
                                     <div class="listing-title-bar">
-                                        <h3> {{ $data->business_name ?? '' }} <span class="mrg-l-5 category-tag">
+                                        <h3> {!! $data->business_name ?? '' !!} <span class="mrg-l-5 category-tag">
                                                 @if (isset($data['category']))
                                                     {{ $data['category']->name ?? 'jh' }}
                                                 @endif
@@ -65,6 +83,10 @@
                             <div class="blog-info details overview">
                                 <h5 class="mb-4">Overview</h5>
                                 {!! $data->long_description ?? '' !!}
+                            </div>
+                            <div class="blog-info details overview">
+                                <h5 class="mb-4">Services</h5>
+                                {!! $data->services ?? '' !!}
                             </div>
                         </div>
                     </div>
@@ -412,7 +434,7 @@
                                                 @else
                                                     {{ maskEmail($data->contact_person_email ?? 'email@example.com') }}
                                                 @endif
-                                                
+
                                             </a>
                                         </li>
                                     </ul>
@@ -556,24 +578,27 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="recent-post tags">
+                        <div class="recent-post tags d-none">
                             <div class="widget-boxed-header">
                                 <h4><i class="fas fa-tags pr-3"></i>Popular Tags</h4>
                             </div>
                             <div class="widget-boxed-body">
                                 <div class="tags">
-                                    <span><a href="#" class="btn btn-outline-primary mr-2">Business</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Restaurant</a></span>
+                                    <span><a href="#" class="btn btn-outline-primary mr-2">GST Return</a></span>
+                                    <span><a href="#" class="btn btn-outline-primary">Incooome Tax
+                                            Return</a></span>
                                 </div>
                                 <div class="tags">
-                                    <span><a href="#" class="btn btn-outline-primary mr-2">Cafe</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Hotels</a></span>
+                                    <span><a href="#" class="btn btn-outline-primary mr-2">GST
+                                            Registration</a></span>
+                                    <span><a href="#" class="btn btn-outline-primary">Income Tax
+                                            filling</a></span>
                                 </div>
                                 <div class="tags">
-                                    <span><a href="#" class="btn btn-outline-primary mr-2">Gym</a></span>
-                                    <span><a href="#" class="btn btn-outline-primary">Cinema</a></span>
+                                    <span><a href="#" class="btn btn-outline-primary mr-2">Form 16</a></span>
+                                    {{-- <span><a href="#" class="btn btn-outline-primary">Cinema</a></span> --}}
                                 </div>
-                                <div class="tags">
+                                {{-- <div class="tags">
                                     <span><a href="#" class="btn btn-outline-primary mr-2">Real
                                             Estates</a></span>
                                     <span><a href="#" class="btn btn-outline-primary">Store</a></span>
@@ -581,7 +606,7 @@
                                 <div class="tags no-mb">
                                     <span><a href="#" class="btn btn-outline-primary mr-2">Conference</a></span>
                                     <span><a href="#" class="btn btn-outline-primary">Places</a></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

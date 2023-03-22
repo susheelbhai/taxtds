@@ -15,6 +15,7 @@
                     ['name'=> 'map_src', 'lbl'=>'Map Embad src', 'value'=> $data->map_src, 'type'=>'textarea'],
                     ['name'=> 'short_description', 'lbl'=>'Short Description', 'value'=> $data->short_description, 'type'=>'textarea'],
                     ['name'=> 'long_description', 'lbl'=>'Long Description', 'value'=> $data->long_description, 'type'=>'textarea'],
+                    ['name'=> 'services', 'lbl'=>'Services', 'type'=>'editor'],
                 ]
             ], 
             [

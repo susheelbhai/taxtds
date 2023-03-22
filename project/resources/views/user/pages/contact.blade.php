@@ -1,5 +1,23 @@
 <x-user-layout>
 
+    <x-slot name="head">
+        <meta name="description" content="html 5 template">
+        <meta name="author" content="">
+        <title>TaxTDS</title>
+        
+        <style>
+            .headings{
+                background: url("{{ asset('storage/common/images/about.jpeg') }}");
+                background-position: center;
+                margin-top: 6rem;
+            }
+            .head-tr.bottom{background-color: #fff;}
+            #navigation.style-1.head-tr ul li a{color: black}
+            .inner-pages .headings h1{margin-top: 8rem;}
+        </style>
+    </x-slot>
+
+
     <div class="clearfix"></div>
         <!-- Header Container / End -->
 
