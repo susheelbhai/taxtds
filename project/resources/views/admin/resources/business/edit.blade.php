@@ -1,11 +1,14 @@
 <x-admin-layout>
 
     @php
+        
         $details = [
             [
                 'id'=>'01',
                 'name'=> 'Company Details',
                 'form'=> [
+                    ['name'=> 'salutation', 'lbl'=>'Salutation',  'options'=> $salutations, 'value'=> $data->salutation_id],
+                    ['name'=> 'category', 'lbl'=>'Category', 'options'=> $categories, 'value'=> $data->category_id],
                     ['name'=> 'business_name', 'lbl'=>'Business Name', 'value'=> $data->business_name],
                     ['name'=> 'registration_number', 'lbl'=>'Registration Number', 'value'=> $data->registration_number],
                     ['name'=> 'gst_number', 'lbl'=>'Gst Number', 'value'=> $data->gst_number],
@@ -15,7 +18,7 @@
                     ['name'=> 'map_src', 'lbl'=>'Map Embad src', 'value'=> $data->map_src, 'type'=>'textarea'],
                     ['name'=> 'short_description', 'lbl'=>'Short Description', 'value'=> $data->short_description, 'type'=>'textarea'],
                     ['name'=> 'long_description', 'lbl'=>'Long Description', 'value'=> $data->long_description, 'type'=>'editor'],
-                    ['name'=> 'services', 'lbl'=>'Services', 'type'=>'editor'],
+                    ['name'=> 'services', 'lbl'=>'Services(List all services here)', 'value'=> $data->services, 'type'=>'editor'],
                 ]
             ], 
             [

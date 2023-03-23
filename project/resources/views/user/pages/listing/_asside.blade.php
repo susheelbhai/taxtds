@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <!--/ End Form Location -->
-
+                        <input type="hidden" name="category" value="{{ request()->category }}">
                     </div>
                 </div>
                 <!--/ End Search Form -->
@@ -49,44 +49,7 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
-                <!-- More Search Options -->
-                {{-- <a href="#" class="more-search-options-trigger margin-bottom-10 margin-top-30" data-open-title="Advanced Features" data-close-title="Advanced Features"></a>
-
-            <div class="more-search-options relative">
-                <!-- Checkboxes -->
-                <div class="checkboxes one-in-row margin-bottom-10">
-                    <input id="check-2" type="checkbox" name="check">
-                    <label for="check-2">Air Conditioning</label>
-                    <input id="check-3" type="checkbox" name="check">
-                    <label for="check-3">Swimming Pool</label>
-                    <input id="check-4" type="checkbox" name="check">
-                    <label for="check-4">Central Heating</label>
-                    <input id="check-5" type="checkbox" name="check">
-                    <label for="check-5">Laundry Room</label>
-                    <input id="check-6" type="checkbox" name="check">
-                    <label for="check-6">Gym</label>
-                    <input id="check-7" type="checkbox" name="check">
-                    <label for="check-7">Alarm</label>
-                    <input id="check-8" type="checkbox" name="check">
-                    <label for="check-8">Window Covering</label>
-                    <input id="check-9" type="checkbox" name="check">
-                    <label for="check-9">WiFi</label>
-                    <input id="check-10" type="checkbox" name="check">
-                    <label for="check-10">TV Cable</label>
-                    <input id="check-11" type="checkbox" name="check">
-                    <label for="check-11">Dryer</label>
-                    <input id="check-12" type="checkbox" name="check">
-                    <label for="check-12">Microwave</label>
-                    <input id="check-13" type="checkbox" name="check">
-                    <label for="check-13">Washer</label>
-                    <input id="check-14" type="checkbox" name="check">
-                    <label for="check-14">Refrigerator</label>
-                    <input id="check-15" type="checkbox" name="check">
-                    <label for="check-15">Outdoor Shower</label>
-                </div>
-                <!-- Checkboxes / End -->
-            </div> --}}
-                <!-- More Search Options / End -->
+                
                 <div class="col-lg-12 no-pds">
                     <div class="at-col-default-mar">
                         <button class="btn btn-default hvr-bounce-to-right" type="submit">Search</button>
@@ -103,8 +66,11 @@
             <div class="widget-boxed-body">
                 <div class="side-list">
                     <ul>
+                        <a href="?search={{ request()->search }}&location={{ request()->location }}&category=">
+                            <li> {{ __('All Categoory') }} </li>
+                        </a>
                         @foreach ($categories as $i)
-                            <a href="#">
+                            <a href="?search={{ request()->search }}&location={{ request()->location }}&category={{ $i->id }}">
                                 <li> {{ $i->name }} </li>
                             </a>
                         @endforeach

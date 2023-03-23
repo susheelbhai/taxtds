@@ -50,3 +50,72 @@
 <script src="{{ url('storage/theme/theme2/js/jquery-3.5.1.min.js') }}"></script>
 
 <script src="{{ url('storage/theme/theme2/js/swiper.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.all.min.js"></script>
+
+<script>
+    function submitContactSeller(business_id) {
+            Swal.fire({
+                title: 'Submit your detail',
+                html: `
+                    <input type="text" id="name" name="name" class="swal2-input" placeholder="Name"> </br>
+                    <input type="text" id="phone" name="phone" class="swal2-input" placeholder="Phone Number"> </br>
+                    <input type="email" id="email" name="email" class="swal2-input" placeholder="Email Id"> </br>
+                    `,
+                confirmButtonText: 'Submit Now',
+                confirmButtonColor: '#397399',
+                showCancelButton: true,
+                cancelButtonText: 'Skip',
+                focusConfirm: false,
+                preConfirm: () => {
+                    const name = Swal.getPopup().querySelector('#name').value
+                    const phone = Swal.getPopup().querySelector('#phone').value
+                    const email = Swal.getPopup().querySelector('#email').value
+                    if (!name || !phone || !email) {
+                        Swal.showValidationMessage(`Please fill all the field`)
+                    } else {
+                        Swal.showValidationMessage(`Submitting`)
+                        $(".swal2-validation-message").addClass("green_before");
+
+                        $.ajax({
+                            type: "POST",
+                            data: {
+                                _token: "{{ csrf_token() }}",
+                                business_id: business_id,
+                                name: name,
+                                phone: phone,
+                                email: email,
+                            },
+                            url: "{{ route('contact_seller') }}",
+                            success: function(res) {
+                                if (res.status == 'submitted') {
+                                    Swal.fire({
+                                        title: 'Seller Detail',
+                                        html: `
+                                        <div class="my-2 text-left"> Following are the seller contact detail </div>
+                                        <table>
+                                            <tr class="text-left">
+                                                <td> Phone </td>    
+                                                <td> : `+res.data.contact_person_phone+`  </td>
+                                            </tr>    
+                                            <tr class="text-left">
+                                                <td> Email </td>    
+                                                <td> : `+res.data.contact_person_email+`  </td>
+                                            </tr>    
+                                        </table>
+                                        `,
+                                    })
+                                } else {
+                                    Swal.showValidationMessage(`Something went wrong`)
+                                }
+                                console.log(res);
+                            },
+                            error: function(errors) {
+                                console.log(errors.responseJSON.message);
+                            }
+                        });
+                    }
+                }
+            })
+        }
+</script>

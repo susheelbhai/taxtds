@@ -17,21 +17,19 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-       $admin1 = Admin::create([
-            'name' => 'Super Admin',
-            'email' => 'admin@gmail.com',
-            'phone' => '9090653356',
-            'gender_id' => 1,
-            'password' => '$2a$12$9Aoav7u7YHAbXY955CQE2uImhKxiELBetcpGDnlfwGHdxwKCzSVxa' //bbbbbbbb
-        ]);
+        $admins = array(
+            array('admin_id' => '1','created_at' => '2023-02-03 10:07:57','updated_at' => '2023-02-03 10:07:57','name' => 'Super Admin','email' => 'admin@gmail.com','phone' => '9090653356','profile_pic' => 'dummy.png','gender_id' => '1','email_verified_at' => NULL,'password' => '$2a$12$/kVZG2u7VE78qi/nLDnpauAPYAvj0z3oCmciDfUS.JWmzrr5oInWO','remember_token' => NULL,'deleted_at' => NULL),
+            array('admin_id' => '2','created_at' => '2023-02-03 10:07:57','updated_at' => '2023-02-03 10:07:57','name' => ' Admin 2','email' => 'susheelkrsingh306@gmail.com','phone' => '9090653355','profile_pic' => 'dummy.png','gender_id' => '1','email_verified_at' => NULL,'password' => '$2a$12$9Aoav7u7YHAbXY955CQE2uImhKxiELBetcpGDnlfwGHdxwKCzSVxa','remember_token' => NULL,'deleted_at' => NULL)
+          );
+       $admin1 = Admin::insert($admins);
 
-        $admin2 = Admin::create([
-            'name' => ' Admin 2',
-            'email' => 'susheelkrsingh306@gmail.com',
-            'phone' => '9090653355',
-            'gender_id' => 1,
-            'password' => '$2a$12$9Aoav7u7YHAbXY955CQE2uImhKxiELBetcpGDnlfwGHdxwKCzSVxa' //bbbbbbbb
-        ]);
+        // $admin2 = Admin::create([
+        //     'name' => ' Admin 2',
+        //     'email' => 'susheelkrsingh306@gmail.com',
+        //     'phone' => '9090653355',
+        //     'gender_id' => 1,
+        //     'password' => '$2a$12$9Aoav7u7YHAbXY955CQE2uImhKxiELBetcpGDnlfwGHdxwKCzSVxa' //bbbbbbbb
+        // ]);
 
         // $admin3 = Admin::create([
         //     'name' => ' Admin 3',

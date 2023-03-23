@@ -10,9 +10,9 @@ class Business extends Model
     use HasFactory;
     protected $guarded = [];
     public $timestamps = false;
-    public function subCategory()
+    public function salutation()
     {
-        return $this->belongsTo(SubCategory::class);
+        return $this->belongsTo(Salutation::class);
     }
     public function category()
     {

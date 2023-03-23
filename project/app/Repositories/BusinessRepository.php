@@ -39,7 +39,7 @@ class BusinessRepository{
         // $business->admin_id = Auth::guard('admin')->user()->admin_id;
         $business->business_name = $request->business_name;
         $business->category_id = $request->category;
-        $business->sub_category_id = $request->sub_category;
+        $business->salutation_id = $request->salutation;
         $business->registration_number = $request->registration_number;
         $business->gst_number = $request->gst_number;
         $business->website = $request->website;
@@ -109,6 +109,8 @@ class BusinessRepository{
             $business->display_img = $display_img_name;
         }
         
+        $business->category_id = $request->category;
+        $business->salutation_id = $request->salutation;
         $business->business_name = $request->business_name;
         $business->registration_number = $request->registration_number;
         $business->gst_number = $request->gst_number;

@@ -25,6 +25,8 @@ Route::middleware('auth_partner')->prefix('partner')->name('partner.')->group(fu
 
     Route::post('/business/activate', [BusinessController::class,'activate'])->name('business.activate');
     Route::post('/business/deactivate', [BusinessController::class,'deactivate'])->name('business.deactivate');
+    Route::post('/business/add_banner_img', [BusinessController::class,'add_banner_img'])->name('business.add_banner_img');
+    Route::post('/business/delete_banner_img', [BusinessController::class,'delete_banner_img'])->name('business.delete_banner_img');
 
     Route::resource('/business', BusinessController::class);
     Route::resource('/product', ProductController::class);

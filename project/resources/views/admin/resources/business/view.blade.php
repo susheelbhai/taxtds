@@ -4,7 +4,9 @@
         $details = [
             [
                 'name' => 'Company Details',
-                'data' => [['name' => 'Category', 'value' => $data['category']->name ?? ''], ['name' => 'Sub Category', 'value' => $data['subCategory']->name ?? ''], ['name' => 'Business Name', 'value' => $data->business_name], ['name' => 'Registration Number', 'value' => $data->registration_number], ['name' => 'Gst Number', 'value' => $data->gst_number], ['name' => 'Logo', 'value' => url('storage/business/images', $data->logo), 'image' => true], ['name' => 'Display Image', 'value' => url('storage/business/images', $data->display_img), 'image' => true], ['name' => 'Short Description', 'value' => $data->short_description], ['name' => 'Long Description', 'value' => $data->long_description]],
+                'data' => [['name' => 'Category', 'value' => $data['category']->name ?? ''], 
+                ['name'=>'Salutation', 'value'=> $data['salutation']->name ?? ''],
+                 ['name' => 'Business Name', 'value' => $data->business_name], ['name' => 'Registration Number', 'value' => $data->registration_number], ['name' => 'Gst Number', 'value' => $data->gst_number], ['name' => 'Logo', 'value' => url('storage/business/images', $data->logo), 'image' => true], ['name' => 'Display Image', 'value' => url('storage/business/images', $data->display_img), 'image' => true], ['name' => 'Short Description', 'value' => $data->short_description], ['name' => 'Long Description', 'value' => $data->long_description]],
             ],
             [
                 'name' => 'Company Address',
@@ -22,27 +24,52 @@
 
 
 
-            <tr>
-                <td class="text-center"> <a class="btn btn-primary"
-                        href="{{ route('admin.business.edit', $data->id) }}">Edit</a> </td>
-                <td class="text-center">
-                    @if ($data->is_approved == 1)
-                        <button class="btn btn-success"> <i class="fas fa-check-circle"></i> Approved </button>
-                    @else
-                        <form action="{{ route('admin.business.approve') }}" method="post">
+            <table>
+                <tr>
+                    <td class="text-center"> <a class="btn btn-primary"
+                            href="{{ route('admin.business.edit', $data->id) }}">Edit</a> </td>
+                    <td class="text-center">
+                        @if ($data->is_approved == 1)
+                            <button class="btn btn-success"> <i class="fas fa-check-circle"></i> Approved </button>
+                        @else
+                            <form action="{{ route('admin.business.approve') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                <button class="btn btn-primary" type="submit">Approve Now</button>
+                            </form>
+                        @endif
+                    </td>
+                    <td class="text-center">
+                        @if($data->is_approved==1) 
+                        @if($data->is_active==0) 
+                        <form action="{{ route('admin.business.activate') }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $data->id }}">
-                            <button class="btn btn-primary" type="submit">Approve Now</button>
+                            <button class="btn btn-primary" type="submit">Activate Now</button>
                         </form>
-                    @endif
-                </td>
-            </tr>
+                        @else
+                        <form action="{{ route('admin.business.deactivate') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $data->id }}">
+                            <button class="btn btn-primary" type="submit">Deactivate Now</button>
+                        </form>
+                        @endif
+                        @else
+                        <button class="btn btn-danger"> Not Approved </button> 
+    
+                        @endif
+    
+                        
+                        
+                    </td>
+                </tr>
+            </table>
         </x-slot>
     </x-admin.detail-page.page1>
 
 
 
-    <x-admin.card.card1 heading="All Banner Images">
+    <x-admin.card.card1 heading="All Banner Images (Please add at-least 3 images)">
 
         <form action="{{ route('admin.business.add_banner_img') }}" method="post" enctype="multipart/form-data">
             @csrf

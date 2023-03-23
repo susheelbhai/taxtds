@@ -23,7 +23,7 @@ Route::get('/getSubCategory', [HomeController::class, 'getSubCategory'])->name('
 Route::get('/listings', [HomeController::class, 'listing'])->name('listing');
 Route::get('/listingDetail/{id}', [HomeController::class, 'listingDetail'])->name('listingDetail');
 Route::post('/submit_review/{id}', [HomeController::class, 'submit_review'])->name('submit_review');
-Route::post('/contact_seller/{id}', [HomeController::class, 'contact_seller'])->name('contact_seller');
+Route::post('/contact_seller', [HomeController::class, 'contact_seller'])->name('contact_seller');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/tnc', [HomeController::class, 'contact'])->name('tnc');

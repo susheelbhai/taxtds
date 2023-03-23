@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Business;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -19,9 +20,11 @@ class ContactSellerSubmissionMailToUser extends Mailable
      * @return void
      */
     public $data;
+    public $business_data;
     public function __construct($data)
     {
         $this->data = $data;
+        $this->business_data = Business::find($data->business_id);
     }
 
     /**

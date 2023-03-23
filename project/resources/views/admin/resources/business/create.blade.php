@@ -6,8 +6,8 @@
                 'id'=>'01',
                 'name'=> 'Company Details',
                 'form'=> [
+                    ['name'=> 'salutation', 'lbl'=>'Salutation',  'options'=> $salutations],
                     ['name'=> 'category', 'lbl'=>'Category', 'options'=> $categories],
-                    ['name'=> 'sub_category', 'lbl'=>'Sub Category',  'options'=> []],
                     ['name'=> 'business_name', 'lbl'=>'Business Name'],
                     ['name'=> 'registration_number', 'lbl'=>'Registration Number'],
                     ['name'=> 'gst_number', 'lbl'=>'Gst Number'],
@@ -17,7 +17,7 @@
                     ['name'=> 'map_src', 'lbl'=>'Map Embad src', 'type'=>'textarea'],
                     ['name'=> 'short_description', 'lbl'=>'Short Description', 'type'=>'textarea'],
                     ['name'=> 'long_description', 'lbl'=>'Long Description', 'type'=>'editor'],
-                    ['name'=> 'services', 'lbl'=>'Services', 'type'=>'editor'],
+                    ['name'=> 'services', 'lbl'=>'Services(List all services here)', 'type'=>'editor'],
                 ]
             ], 
             [

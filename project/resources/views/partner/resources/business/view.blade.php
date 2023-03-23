@@ -6,7 +6,7 @@
                 'name'=> 'Company Details',
                 'data'=> [
                     ['name'=>'Category', 'value'=> $data['category']->name ?? ''],
-                    ['name'=>'Sub Category', 'value'=> $data['subCategory']->name ?? ''],
+                    ['name'=>'Salutation', 'value'=> $data['salutation']->name ?? ''],
                     ['name'=>'Business Name', 'value'=> $data->business_name],
                     ['name'=>'Registration Number', 'value'=> $data->registration_number],
                     ['name'=>'Gst Number', 'value'=> $data->gst_number],
@@ -67,5 +67,39 @@
             </tr>
         </x-slot>
     </x-partner.detail-page.page1>
+
+
+    <x-admin.card.card1 heading="All Banner Images (Please add at-least 3 images)">
+
+        <form action="{{ route('partner.business.add_banner_img') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="business_id" value="{{ $data->id }}">
+            <x-partner.form.input-img1 name="banner_img" lbl="Select Banner Img" type="file" required="required" />
+            <button class="btn btn-primary" type="submit">Upload Image</button>
+        </form>
+
+
+        <div class="row">
+            @foreach ($banner_img as $i)
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="{{ route('partner.business.delete_banner_img') }}" method="post"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $i->id }}">
+                                <img src="{{ url('/storage/business/images/', $i->name) }}" alt=""
+                                    width="100%">
+                                <button class="btn btn-danger" type="submit">Delete Image</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+
+
+    </x-admin.card.card1>
 
 </x-partner-layout>

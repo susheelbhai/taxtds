@@ -1,8 +1,13 @@
 <x-user-layout>
 
     <style>
-        section.popular.portfolio{padding-top: 0 !important}
-        .pro-wrapper{display:none !important;}
+        section.popular.portfolio {
+            padding-top: 0 !important
+        }
+
+        .pro-wrapper {
+            display: none !important;
+        }
     </style>
 
     <!-- START SECTION LISTING RIGHT -->
@@ -11,7 +16,9 @@
             @include('user.pages.listing._header_ad')
             @include('user.pages.listing._header')
 
-
+            @if (!Session::has('unmask_contact'))
+                
+            @endif
             <div class="row">
                 @include('user.pages.listing._asside')
                 <div class="col-lg-8 col-md-12 blog-pots listing-list">
@@ -28,7 +35,8 @@
                                     <div class="project-inner project-head">
                                         <div class="homes">
                                             <!-- homes img -->
-                                            <a href="{{ route('listingDetail', $i->id) }}" class="homes-img hover-effect">
+                                            <a href="{{ route('listingDetail', $i->id) }}"
+                                                class="homes-img hover-effect">
                                                 <div class="homes-tag button alt featured f2">Popular</div>
                                                 <div class="homes-tag button sale rent"><i class="fa fa-heart-o"></i>
                                                     <p>163</p>
@@ -59,46 +67,60 @@
                             <!-- homes content -->
                             <div class="col-lg-7 col-md-12 homes-content pb-0 my-1 ft mb-44" data-aos="fade-up">
                                 <a href="{{ route('listingDetail', $i->id) }}">
-                                <!-- homes address -->
-                                <div href="{{ route('listingDetail', $i->id) }}" class="enty">
-                                    <span href="{{ route('listingDetail', $i->id) }}">
-                                        <h3 class="mb-4">{{ $i->business_name ?? '' }}</h3>
-                                    </span>
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-map-marker"></i>
-                                            <span>{{ $i->business_address }}</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-phone" aria-hidden="true"></i>
-                                            <span>{{ maskPhone($i->business_phone ?? '9999999999') }}</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                                            <span>{{ maskEmail($i->business_email ?? 'aaa@aaa.aaa') }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Price -->
-                                <div href="{{ route('listingDetail', $i->id) }}" class="price-properties">
-                                    <ul class="starts text-left mb-0">
-                                        <li class="mt-3"><img src="storage/theme/theme2/images/icons/8.png"
-                                                width="20" class="mr-2" alt="">
-                                            @if (isset($i['category']))
-                                                {{ $i['category']->name }}
-                                            @endif {{ $i['subCategory']->name ?? '' }}
-                                        </li>
-                                    </ul>
-                                    <div class="fr-grid-thumb">
-                                        <div href="#">
-                                            <div class="overall-rate"><i class="fas fa-check"></i></div>
-                                            <img src="{{ url('storage/business/images', $i->logo) }}"
-                                                class="img-fluid mx-auto" alt="" />
+                                    <!-- homes address -->
+                                    <div href="{{ route('listingDetail', $i->id) }}" class="enty">
+                                        <span href="{{ route('listingDetail', $i->id) }}">
+                                            <h3 class="mb-4">{!! $i->business_name ?? '' !!}</h3>
+                                        </span>
+                                        <ul class="homes-list clearfix">
+                                            <li>
+                                                <i class="fa fa-map-marker"></i>
+                                                <span>{{ $i->business_address }}</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                                <span>
+                                                    @if (Session::has('unmask_contact'))
+                                                        {{ $data->contact_person_phone ?? '' }}
+                                                    @else
+                                                        {{-- {{ $data->contact_person_phone ?? '' }} --}}
+                                                        {{ maskPhone($data->contact_person_phone ?? '9999999999') }}
+                                                    @endif
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                <span>
+                                                    @if (Session::has('unmask_contact'))
+                                                        {{ $data->contact_person_email ?? '' }}
+                                                    @else
+                                                        {{-- {{ $data->contact_person_email ?? '' }} --}}
+                                                        {{ maskEmail($data->contact_person_email ?? 'email@example.com') }}
+                                                    @endif
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Price -->
+                                    <div href="{{ route('listingDetail', $i->id) }}" class="price-properties">
+                                        <ul class="starts text-left mb-0">
+                                            <li class="mt-3"><img src="storage/theme/theme2/images/icons/8.png"
+                                                    width="20" class="mr-2" alt="">
+                                                @if (isset($i['category']))
+                                                    {{ $i['category']->name }}
+                                                @endif {{ $i['subCategory']->name ?? '' }}
+                                            </li>
+                                        </ul>
+                                        <div class="fr-grid-thumb">
+                                            <div href="#">
+                                                <div class="overall-rate"><i class="fas fa-check"></i></div>
+                                                <img src="{{ url('storage/business/images', $i->logo) }}"
+                                                    class="img-fluid mx-auto" alt="" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </a>
-                                
+
                             </div>
                         @endforeach
 
@@ -107,7 +129,7 @@
 
                 </div>
 
-                
+
 
             </div>
             @include('user.pages.listing._partners')
@@ -121,7 +143,6 @@
             $(window).on('scroll load', function() {
                 $("#header.cloned #logo img").attr("src", $('#header #logo img').attr('data-sticky-logo'));
             });
-
         </script>
         <script>
             $('.style1').owlCarousel({
@@ -155,7 +176,6 @@
                     }
                 }
             });
-
         </script>
         <script>
             $('.style2').owlCarousel({
@@ -192,21 +212,19 @@
                     }
                 }
             });
-
         </script>
 
-<script>
-    $('.owl_ad').owlCarousel({
-        loop: true,
-        margin: 0,
-        dots: true,
-        autoWidth: false,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        items:1
-    });
-
-</script>
+        <script>
+            $('.owl_ad').owlCarousel({
+                loop: true,
+                margin: 0,
+                dots: true,
+                autoWidth: false,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                items: 1
+            });
+        </script>
         <script src="http://localhost/slist/storage/theme/theme2/js/inner.js"></script>
     </x-slot>
 

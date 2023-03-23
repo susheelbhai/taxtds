@@ -6,8 +6,8 @@
                 'id'=>'01',
                 'name'=> 'Company Details',
                 'form'=> [
+                    ['name'=> 'salutation', 'lbl'=>'Salutation',  'options'=> $salutations],
                     ['name'=> 'category', 'lbl'=>'Category', 'options'=> $categories],
-                    ['name'=> 'sub_category', 'lbl'=>'Sub Category',  'options'=> []],
                     ['name'=> 'business_name', 'lbl'=>'Business Name'],
                     ['name'=> 'registration_number', 'lbl'=>'Registration Number'],
                     ['name'=> 'gst_number', 'lbl'=>'Gst Number'],

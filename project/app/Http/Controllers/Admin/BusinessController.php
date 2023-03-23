@@ -10,6 +10,7 @@ use App\Repositories\BusinessRepository;
 use App\Http\Requests\Business\StoreRequest;
 use App\Http\Requests\Business\UpdateRequest;
 use App\Models\BusinessBannerImage;
+use App\Models\Salutation;
 
 class BusinessController extends Controller
 {
@@ -37,8 +38,9 @@ class BusinessController extends Controller
     public function create()
     {
         $categories = Category::select('id as value', 'name as lbl' )->get();
+        $salutations = Salutation::select('id as value', 'name as lbl' )->get();
         // return 1;
-        return view('admin.resources.business.create', compact('categories'));
+        return view('admin.resources.business.create', compact('categories', 'salutations'));
     }
 
     /**
@@ -77,7 +79,7 @@ class BusinessController extends Controller
      */
     public function show($id)
     {
-        $data = Business::whereId($id)->with('category', 'subCategory')->first();
+        $data = Business::whereId($id)->with('category', 'salutation')->first();
         $banner_img = BusinessBannerImage::where('business_id', $id)->get();
         return view('admin.resources.business.view', compact('data', 'banner_img'));
     }
@@ -90,9 +92,12 @@ class BusinessController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::select('id as value', 'name as lbl' )->get();
+        $salutations = Salutation::select('id as value', 'name as lbl' )->get();
+
         $data = Business::findOrFail($id);
 
-        return view('admin.resources.business.edit', compact('data'));
+        return view('admin.resources.business.edit', compact('data', 'categories', 'salutations'));
     }
 
     /**
@@ -109,9 +114,21 @@ class BusinessController extends Controller
         return redirect()->route('admin.business.index');
     }
 
+    public function activate(Request $req)
+    {
+        Business::findOrFail($req->id)->update(['is_active' => 1]);
+        return back()->with('msg', 'Bussiness Approved Successfully');
+    }
+
     public function approve(Request $req)
     {
         Business::findOrFail($req->id)->update(['is_approved' => 1]);
+        return back()->with('msg', 'Bussiness Approved Successfully');
+    }
+
+    public function deactivate(Request $req)
+    {
+        Business::findOrFail($req->id)->update(['is_active' => 0]);
         return back()->with('msg', 'Bussiness Approved Successfully');
     }
     /**

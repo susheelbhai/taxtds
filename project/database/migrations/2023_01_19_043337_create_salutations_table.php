@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('salutations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->foreignId('category_id')->nullable()->references('id')->on('categories');
             $table->string('name');
-            $table->string('icon')->nullable();
             $table->boolean('is_active')->default(1);
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('salutations');
     }
 };

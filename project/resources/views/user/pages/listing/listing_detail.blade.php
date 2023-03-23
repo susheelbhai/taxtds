@@ -3,12 +3,29 @@
     <x-slot name="head">
         <meta name="description" content="html 5 template">
         <meta name="author" content="">
-        <title>TaxTDS</title>
-
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <title> {{ $data->business_name }} |TaxTDS</title>
+        <style>
+            .swiper-wrapper{
+                background-position: center;
+                margin-top: 6rem;
+            }
+            .head-tr.bottom{background-color: #fff;}
+            #navigation.style-1.head-tr ul li a{color: black}
+            .swal2-select {
+                display: none
+            }
+        </style>
     </x-slot>
 
-    <div>
+    <script>
+        
+
+        window.onload = submitContactSeller("{{ $data->id }}");
+    </script>
+
+
+
+    <div class="">
         <div class="swiper-container">
             <div class="swiper-wrapper">
 
@@ -41,7 +58,7 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Seller Contact Details',
-                html: 'Phone : {{ $data->contact_person_phone ?? ''  }}</br> Email: {{ $data->contact_person_email ?? ''  }}',
+                html: 'Phone : {{ $data->contact_person_phone ?? '' }}</br> Email: {{ $data->contact_person_email ?? '' }}',
             })
         </script>
     @endif
@@ -422,7 +439,8 @@
                                                 @if (Session::has('unmask_contact'))
                                                     {{ $data->contact_person_phone ?? '' }}
                                                 @else
-                                                    {{ maskPhone($data->contact_person_phone ?? '9999999999') }}
+                                                    {{ $data->contact_person_phone ?? '' }}
+                                                    {{-- {{ maskPhone($data->contact_person_phone ?? '9999999999') }} --}}
                                                 @endif
                                             </a>
                                         </li>
@@ -432,7 +450,8 @@
                                                 @if (Session::has('unmask_contact'))
                                                     {{ $data->contact_person_email ?? '' }}
                                                 @else
-                                                    {{ maskEmail($data->contact_person_email ?? 'email@example.com') }}
+                                                    {{ $data->contact_person_email ?? '' }}
+                                                    {{-- {{ maskEmail($data->contact_person_email ?? 'email@example.com') }} --}}
                                                 @endif
 
                                             </a>
@@ -453,8 +472,9 @@
                                     <div class="agent-contact-form-sidebar">
                                         <h4><i class="far fa-envelope pr-3"></i>Contact Seller</h4>
                                         <form name="contact_form" method="post"
-                                            action="{{ route('contact_seller', $data->id) }}">
+                                            action="{{ route('contact_seller') }}">
                                             @csrf
+                                            <input type="hidden" name="business_id" value="{{ $data->id }}">
                                             <input type="text" id="name" name="name"
                                                 placeholder="Full Name" required />
                                             <input type="number" id="phone" name="phone"

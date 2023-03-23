@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('partner_id')->nullable()->references('partner_id')->on('partners');
             $table->foreignId('category_id')->nullable()->references('id')->on('categories');
-            $table->foreignId('sub_category_id')->nullable()->references('id')->on('sub_categories');
+            $table->foreignId('salutation_id')->nullable()->references('id')->on('salutations');
             $table->string('business_name')->nullable();
             $table->string('registration_number')->nullable();
             $table->string('logo')->nullable();

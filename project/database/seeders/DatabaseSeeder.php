@@ -20,8 +20,11 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTypeSeeder::class);
         $this->call(AdminSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(SubCategorySeeder::class);
+        $this->call(SalutationSeeder::class);
+        $this->call(PartnerSeeder::class);
         $this->call(BusinessSeeder::class);
+        $this->call(BusinessBannerImageSeeder::class);
+        $this->call(BusinessReviewSeeder::class);
         $this->call(ImportantLinkSeeder::class);
 
         // \App\Models\User::factory(10)->create();
